@@ -76,7 +76,7 @@
 ```bash
 # Install the basic packages
 sudo pacman -Sy
-sudo pacman -S xorg bspwm sxhkd xorg-xinit xterm git
+sudo pacman -S xorg bspwm sxhkd xorg-xinit xterm git python3
 
 # Disable any other exec lines and add to the end of the file with the line: exec bspwm
 micro /etc/X11/xinit/xinitrc
