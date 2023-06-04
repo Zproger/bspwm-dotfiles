@@ -82,7 +82,9 @@ micro /etc/X11/xinit/xinitrc
 * **The brightness of the screen is not displayed on the bar**. This error is due to the fact that the Builder was unable to automatically install drivers for the video card or processor. You need to go to [Arch Wiki](https://wiki.archlinux.org/) and do the installation manually.
 * **The battery is not displayed on the bar**. You need to open `~/bin/battery-alert` and change the `battery` variable to your battery value.
 * **Hangs animation or terminals**. The problem is that you may not be using graphics drivers or may be working from a virtual machine. You need to open `~/.config/bspwm/bspwmrc` and comment out the line with the `picom` startup.
-* 
+* **Interface problem**. If you are not using a `1920x1080 monitor`, the interface may not look like it should. In that case you need to manually edit the configuration.
+* **User name error**. At this point, the configuration is installed locally on the user from where the builder was running. Also the username must be `user` for the system to work properly. If you get this error, you need to create a new user named `user` and redo the installation.
+* **Other errors**. If you find bugs that aren't listed here and you're sure you followed the manual, then be sure to contact us so we can fix the bug in the next update.
 
 
 <!-- HOTKEYS -->
