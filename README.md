@@ -12,7 +12,7 @@
 </p>
 
 <!-- INFORMATION -->
-<h1 align="left"> :herb: About</h1> 
+<h1 align="left"> :blue_book: About</h1> 
 
 <img src="demonstration/1.png" alt="rice" align="right" width="500px">
 
@@ -50,6 +50,7 @@
 * All hotkeys are honed for maximum productivity.
 * A very lightweight system that consumes less than 700mb of memory.
 * Automatic installation and configuration of all basic software for development.
+
 **And more...**
 
 <table align="center">
@@ -77,8 +78,7 @@
 sudo pacman -Sy
 sudo pacman -S xorg bspwm sxhkd xorg-xinit xterm git
 
-# Disable any other exec lines and add to the end of the
-file with the line: exec bspwm
+# Disable any other exec lines and add to the end of the file with the line: exec bspwm
 micro /etc/X11/xinit/xinitrc
 ```
 * Clone the current repository and run the builder: `python3 Builder/install.py`. In the installer menu, select the items you want. The Builder also installs basic development software and useful applications; if you don't need it, you can choose not to install it.
