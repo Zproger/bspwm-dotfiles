@@ -64,3 +64,11 @@
 ## 💻 Installation
 
 <!-- HOTKEYS -->
+## 💻 HotKeys
+* **Open the terminal** - `super + p`
+* **Set a random wallpaper** - `super + w`
+* **Switch the layout** - `shift + alt`
+* **Open the application menu** - `super + d`
+* **Open the browser in incognito mode** - `super + shift + i`
+* **Recognize the color on the screen** - `super + shift + x`
+* **Lock the screen** - `super + shift + l`
