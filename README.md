@@ -63,6 +63,8 @@
 <!-- INSTALLATION -->
 ## :blue_book: Installation
 
+<!-- ERRORS -->
+
 <!-- HOTKEYS -->
 ## 💻 HotKeys
 * **Open the terminal** - `super + p`
@@ -83,3 +85,7 @@
 * **Switch the window to floating mode** - `super + space`
 
 The other hotkeys are in ~/.config/sxhkd/sxhkdrc.
+
+#
+
+The project is actively developing, so you can offer your ideas for improvements and visit our [YouTube channel](https://youtube.com/@zproger) and [Telegram](https://t.me/codeblog8)
