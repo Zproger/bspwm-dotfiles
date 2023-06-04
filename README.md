@@ -73,10 +73,15 @@ sudo pacman -S xorg bspwm sxhkd xorg-xinit xterm git
 file with the line: exec bspwm
 micro /etc/X11/xinit/xinitrc
 ```
-* Clone the current repository and run the builder: `python3 Builder/install.py`.
-In the installer menu, select the items you want. The Builder also installs basic development software and useful applications; if you don't need it, you can choose not to install it.
+* Clone the current repository and run the builder: `python3 Builder/install.py`. In the installer menu, select the items you want. The Builder also installs basic development software and useful applications; if you don't need it, you can choose not to install it.
+* After installation, type `startx` to start the system
+
 
 <!-- ERRORS -->
+## :moyai: Post-installation fixes
+* **The battery is not displayed on the bar**. This error is due to the fact that the Builder was unable to automatically install drivers for the video card or processor. You need to go to [Arch Wiki](https://wiki.archlinux.org/) and do the installation manually.
+* 
+
 
 <!-- HOTKEYS -->
 ## 💻 HotKeys
