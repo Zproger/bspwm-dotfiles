@@ -1,10 +1,18 @@
 <h1 align="center"> :herb: ZProger Build :herb: </h1>
 
 <!-- BADGES -->
+</br>
 
+<p align="center">
+  <img src="https://img.shields.io/codeclimate/issues/Zproger/bspwm-dotfiles?style=for-the-badge">
+  </br>
+  <img src="https://img.shields.io/github/languages/count/Zproger/bspwm-dotfiles?style=for-the-badge">
+  <img src="https://img.shields.io/github/repo-size/Zproger/bspwm-dotfiles?style=for-the-badge">
+  </br>
+</p>
 
 <!-- INFORMATION -->
-<h1 align="left"> :herb: about</h1> 
+<h1 align="left"> :herb: About</h1> 
 
 <img src="demonstration/1.png" alt="rice" align="right" width="500px">
 
@@ -62,7 +70,7 @@
 
 <!-- INSTALLATION -->
 ## :blue_book: Installation
-* First you need to install Arch Linux without a graphical shell, you can follow [this manual](https://docs.google.com/document/d/1DPSu3DuQ9AJccGPLJgmWFuAi-u1_KsPsqcYHj_Wp870/edit?usp=sharing).
+* First you need to install Arch Linux without a graphical shell, you can follow [this manual](https://docs.google.com/document/d/1DPSu3DuQ9AJccGPLJgmWFuAi-u1_KsPsqcYHj_Wp870/edit?usp=sharing). Note that for correct operation, the username must be `user`.
 * Install the current build:
 ```bash
 # Install the basic packages
