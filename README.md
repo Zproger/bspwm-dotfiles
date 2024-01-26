@@ -4,11 +4,9 @@
 </br>
 
 <p align="center">
-  <img src="[https://img.shields.io/codeclimate/issues/Zproger/bspwm-dotfiles?style=for-the-badge](https://img.shields.io/github/issues/zproger/bspwm-dotfiles
-)">
+  <img src="[https://img.shields.io/codeclimate/issues/Zproger/bspwm-dotfiles?style=for-the-badge](https://img.shields.io/github/issues/zproger/bspwm-dotfiles)">
   </br>
-  <img src="[https://img.shields.io/github/languages/count/Zproger/bspwm-dotfiles?style=for-the-badge](https://img.shields.io/github/languages/count/zproger/bspwm-dotfiles
-)">
+  <img src="[https://img.shields.io/github/languages/count/Zproger/bspwm-dotfiles?style=for-the-badge](https://img.shields.io/github/languages/count/zproger/bspwm-dotfiles)">
   <img src="https://img.shields.io/github/repo-size/Zproger/bspwm-dotfiles?style=for-the-badge">
   </br>
 </p>
