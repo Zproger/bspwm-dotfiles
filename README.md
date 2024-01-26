@@ -101,12 +101,12 @@ micro /etc/X11/xinit/xinitrc
 * **Set a random wallpaper** - `super + w`
 * **Switch the layout** - `shift + alt`
 * **Open the application menu** - `super + d`
+* **Derive a random verse from the Bible** - `super + shift + q`
 * **Open the browser in incognito mode** - `super + shift + i`
 * **Recognize the color on the screen** - `super + shift + x`
 * **Lock the screen** - `super + shift + l`
 * **Open the console calendar** - `super + shift + k`
 * **Launch Telegram** - `super + shift + t`
-* **Start displaying quotes on the screen** - `super + shift + q`
 * **Close the window that is in focus** - `super + c`
 * **Take a screenshot** - `print`
 * **Restart bspwm** - `ctrl + shift + r`
@@ -114,7 +114,7 @@ micro /etc/X11/xinit/xinitrc
 * **Move the window to another desktop** - `super + shift + 1/6`
 * **Switch the window to floating mode** - `super + space`
 
-The other hotkeys are in ~/.config/sxhkd/sxhkdrc.
+The other hotkeys are in `~/.config/sxhkd/sxhkdrc`.
 
 #
 
