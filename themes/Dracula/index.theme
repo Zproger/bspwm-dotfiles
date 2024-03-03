@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Dracula
+Comment=A flat and light theme with a modern look
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Dracula
+MetacityTheme=Dracula
+IconTheme=Mint-Y
+ButtonLayout=menu:minimize,maximize,close

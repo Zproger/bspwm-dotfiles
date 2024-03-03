@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Dracula-pink-accent
+Comment=A flat and light theme with a modern look
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Dracula-pink-accent
+MetacityTheme=Dracula-pink-accent
+IconTheme=Mint-Y
+ButtonLayout=menu:minimize,maximize,close
