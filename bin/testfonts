@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Values
+TEXT="${1:-abcd efg hijk lmno pqrs tuv wxyz\nABCD EFG HIJK LMNO PQRS TUV WXYZ\n  1234567890       ,./\\;'[]-=\`\n  !@#\$%%^&*()      <>?|:\"\{\}_+~}"
+STYLES="${2:-normal bold italic}"
+
+# Start
+for style in $STYLES; do
+	case "$style" in
+		'normal') print="$print${print:+\n}\033[0m$TEXT\033[0m" ;;
+		'bold')   print="$print${print:+\n}\033[1m$TEXT\033[0m" ;;
+		'italic') print="$print${print:+\n}\033[3m$TEXT\033[0m" ;;
+	esac
+done
+
+echo -e "\n$print\n"
+
+exit 0

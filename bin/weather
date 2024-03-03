@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+city="Kiev"
+url="wttr.in/$city?format=3"
+weather=$(curl -s $url)
+
+if [ $(echo "$weather" | grep -E "(Unknown|curl|HTML)" | wc -l) -gt 0 ]; then
+    echo "WEATHER UNAVAILABLE"
+else
+    echo "$weather" | awk '{print $1" "$3}'
+fi
+

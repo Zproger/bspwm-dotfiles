@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+## Fullscreen terminal
+alacritty --class 'Fullscreen,Fullscreen' \
+				 -o 'window.padding.x=45' \
+				 -o 'window.padding.y=45' \
+				 -o 'window.opacity=1.0'  \
+				 -o 'window.startup_mode="fullscreen"'
