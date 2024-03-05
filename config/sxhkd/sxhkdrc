@@ -10,22 +10,22 @@ super + Return
 
 # Hide or Unhide Polybar
 super + p
-	$HOME/bin/toggle-polybar
+	sh $HOME/bin/toggle-polybar
 
 # Set random wallpaper
 super + w
-	$HOME/bin/random_wallpaper
+	sh $HOME/bin/random_wallpaper
 
 # Change language
 Alt_L + shift
-	$HOME/bin/change_language.sh
+	sh $HOME/bin/change_language.sh
 
 Shift_L + alt
-	$HOME/bin/change_language.sh
+	sh $HOME/bin/change_language.sh
     
 # Launch Rofi Menu
 super + {d,x}
-    {rofi -show drun,$HOME/bin/powermenu}
+    {rofi -show drun,sh $HOME/bin/powermenu}
 
 # Launch Applications
 super + shift + {f,n,p,t,c,v,i,x,q,k,l}
@@ -36,10 +36,10 @@ super + shift + {f,n,p,t,c,v,i,x,q,k,l}
 	code, \
 	virtualbox, \
 	firefox --private-window, \
-	$HOME/bin/xcolor-pick, \
-	$HOME/bin/bible, \
+	sh $HOME/bin/xcolor-pick, \
+	sh $HOME/bin/bible, \
 	alacritty -e calcurse, \
-	$HOME/bin/screen-lock}
+	sh $HOME/bin/screen-lock}
      
 # Select window to close
 ctrl + super + alt + k
@@ -47,11 +47,11 @@ ctrl + super + alt + k
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-    $HOME/bin/volume{ --up, --down, --toggle}
+    sh $HOME/bin/volume{ --up, --down, --toggle}
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
-    $HOME/bin/brightness{ --up, --down}
+    sh $HOME/bin/brightness{ --up, --down}
 
 # screenshot
 Print
