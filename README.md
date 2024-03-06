@@ -51,7 +51,7 @@
 * A very lightweight system that consumes less than 700mb of memory.
 * Automatic installation and configuration of all basic software for development.
 
-**And more...**
+**And more features: [EN](Docs/03_all_features_and_tricks_english.md), [RU](Docs/02_all_features_and_tricks_russian.md)**
 
 <table align="center">
    <tr>
@@ -71,18 +71,7 @@
 
 <!-- INSTALLATION -->
 ## :blue_book: Installation
-* First you need to install Arch Linux without a graphical shell, you can follow [this manual](https://docs.google.com/document/d/1DPSu3DuQ9AJccGPLJgmWFuAi-u1_KsPsqcYHj_Wp870/edit?usp=sharing). Note that for correct operation, the username must be `user`.
-* Install the current build:
-```bash
-# Install the basic packages
-sudo pacman -Sy
-sudo pacman -S xorg bspwm sxhkd xorg-xinit xterm git python3
-
-# Disable any other exec lines and add to the end of the file with the line: exec bspwm
-micro /etc/X11/xinit/xinitrc
-```
-* Clone the current repository and run the builder: `python3 Builder/install.py`. In the installer menu, select the items you want. The Builder also installs basic development software and useful applications; if you don't need it, you can choose not to install it.
-* After installation, type `startx` to start the system
+A guide to installing the system and graphical shell via builder: [EN](Docs/01_installing_arch_linux_with_bspwm_english.md), [RU](Docs/00_installing_arch_linux_with_bspwm_russian.md). 
 
 
 <!-- ERRORS -->
