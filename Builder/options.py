@@ -1,4 +1,5 @@
 import os
+from typing import Union
 from creators.builder import SystemConfiguration
 
 
@@ -14,27 +15,24 @@ class UserInterface:
         os.system("sh Builder/assets/startup.sh")        
 
     @staticmethod
-    def is_verify_response(text) -> bool:
-        if "y" in text.lower():
+    def is_verify_response(text: str, default: Union[str, None] = None) -> bool:
+        if ("y" in text.lower()) or (text.lower() == default):
             return True
-        else:
-            return False
+        return False
+
 
     @staticmethod
     def get_params():
-        print("1) Install all dotfiles? [Y/n]: ", end="")
-        option_1 = UserInterface.is_verify_response(input())
+        options = [
+            "Install all dotfiles? [Y/n]",
+            "Update Arch DataBase? [Y/n]",
+            "Install BSPWM Dependencies? [Y/n]",
+            "Install Dev Dependencies? [Y/n]",
+            "Install Nvidia & Intel Drivers? [Y/n]"
+        ]
         
-        print("2) Update Arch DataBase? [Y/n] ", end="")
-        option_2 = UserInterface.is_verify_response(input())
+        result = []
+        for i, option in enumerate(options, start=1):
+            result.append(UserInterface.is_verify_response(input(f"{i}) {option}"), ""))
 
-        print("3) Install BSPWM Dependencies? [Y/n] ", end="")
-        option_3 = UserInterface.is_verify_response(input())
-
-        print("4) Install Dev Dependencies? [Y/n] ", end="")
-        option_4 = UserInterface.is_verify_response(input())
-        
-        print("5) Install Nvidia & Intel Drivers? [Y/n] ", end="")
-        option_5 = UserInterface.is_verify_response(input())
-
-        return [option_1, option_2, option_3, option_4, option_5]
+        return result
