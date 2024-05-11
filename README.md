@@ -87,7 +87,7 @@ Complete instructions for corrections: https://youtu.be/9zewiGf7j-A
 
 <!-- HOTKEYS -->
 ## 💻 HotKeys
-* **Open the terminal** - `super + p`
+* **Open the terminal** - `super + enter`
 * **Set a random wallpaper** - `super + w`
 * **Switch the layout** - `shift + alt`
 * **Open the application menu** - `super + d`
