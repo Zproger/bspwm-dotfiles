@@ -72,7 +72,7 @@ lvs
 mkfs.ext4 /dev/mapper/main-root
 
 # Форматируем boot раздел под Fat32, на физ.разделе /dev/sda1 лежит boot
-mkfs.fat -F32 /dev/sda1
+mkfs.fat -F 32 /dev/sda1
 
 # Монтируем разделы для установки системы
 mount /dev/mapper/main-root /mnt
