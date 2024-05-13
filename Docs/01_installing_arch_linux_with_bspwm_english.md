@@ -72,7 +72,7 @@ lvs
 mkfs.ext4 /dev/mapper/main-root
 
 # Format boot partition to Fat32, boot is on physical partition /dev/sda1
-mkfs.fat -F32 /dev/sda1
+mkfs.fat -F 32 /dev/sda1
 
 # Mount the partitions for installing the system
 mount /dev/mapper/main-root /mnt
