@@ -112,7 +112,7 @@ echo "arch" > /etc/hostname
 passwd
 
 # Add a new user and configure permissions
-useradd -m -G wheel,users -s /bin/bash user
+useradd -m -G wheel,audio,video,optical,storage -s /bin/bash user
 passwd user
 systemctl enable dhcpcd
 systemctl enable iwd.service

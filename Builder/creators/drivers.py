@@ -1,12 +1,12 @@
 import os
 from logger import Logger, LoggerStatus
 
-# TODO: !DEPRECATED
+# NOTE: !DEPRECATED
 
 class GraphicDrivers:
     @staticmethod
     def build():
-        print(f"--The function will be deleted--")
+        print("--The function will be deleted--")
         GraphicDrivers.__prepare_multilib()
         GraphicDrivers.__update_multilib_repo()
         GraphicDrivers.__install_hybrid_drivers()
