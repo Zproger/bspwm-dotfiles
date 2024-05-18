@@ -7,7 +7,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # wmname LG3D
 
 # workspaces
-bspc monitor primary -d 1 2 3 4 5 6 7
+bspc monitor -d 1 2 3 4 5 6 7
 bspc monitor LVDS-1 -d 7  # TODO: multiple monitors
 
 bspc config focus_follows_pointer true
