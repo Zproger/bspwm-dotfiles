@@ -27,6 +27,10 @@ Shift_L + alt
 super + {d,x}
     {rofi -show drun,sh $HOME/bin/powermenu}
 
+# Launch Rofi Clipboard Menu
+super + v
+    sh $HOME/bin/rofi-clipboard-manager.sh
+
 # Launch Applications
 super + shift + {f,n,p,t,c,v,i,x,q,k,l}
 	{firefox, \

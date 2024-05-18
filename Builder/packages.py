@@ -25,7 +25,7 @@ DEV_PACKAGES = [
 ]
 
 AUR_PACKAGES = [
-    "cava", "i3lock-color", "ptpython"
+    "cava", "i3lock-color", "ptpython", "greenclip"
 ]
 
 GNOME_OFFICIAL_TOOLS = [
