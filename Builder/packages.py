@@ -3,7 +3,7 @@
 BASE_PACKAGES = [
     "tumbler", "ffmpegthumbnailer", "lsd", "alacritty", "bat", "brightnessctl", "calc",
     "automake", "blueman", "bluez", "bluez-utils", "dunst", "fakeroot", "feh", "firefox",
-    "fish", "dpkg", "gcc", "gedit", "git", "gnu-netcat", "htop", "btop", "nano", "lxappearance",
+    "fish", "dpkg", "gcc", "git", "gnu-netcat", "btop", "lxappearance", "micro",
     "mat2", "mpd", "mpv", "thunar", "ncmpcpp", "neofetch", "network-manager-applet", "nitrogen",
     "pamixer", "papirus-icon-theme", "pavucontrol", "polybar", "autoconf", "mpc", "pulseaudio",
     "pulseaudio-alsa", "python-pyalsa", "ranger", "redshift", "reflector", "rofi", "rofi-calc", "calcurse",
