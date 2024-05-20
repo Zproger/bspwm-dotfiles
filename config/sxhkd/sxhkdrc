@@ -29,7 +29,7 @@ super + {d,x}
 
 # Launch Rofi Clipboard Menu
 super + v
-    sh $HOME/bin/rofi-clipboard-manager.sh
+    sh $HOME/bin/rofi-menus/rofi-clipboard-manager.sh
 
 # Launch Applications
 super + shift + {f,n,p,t,c,v,i,x,q,k,l}
