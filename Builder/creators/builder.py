@@ -7,8 +7,8 @@ from creators.drivers import GraphicDrivers
 from creators.patches import PatchSystemBugs
 from creators.daemons import Daemons
 
-# TODO: Implement error handling for package installation
 
+# TODO: Implement error handling for package installation
 class SystemConfiguration:
     def start(*args):
         start_text = f"[+] Starting assembly. Options {args}"
@@ -21,6 +21,9 @@ class SystemConfiguration:
         # TODO: The process should not be repeated when reassembling, important components should only be updated with new ones
         Daemons.enable_all_daemons()
         PatchSystemBugs.enable_all_patches()
+
+        # Installing a theme for fish
+        os.system("fish_config theme save \"Catppuccin Mocha\"")
 
     @staticmethod
     def __start_option_1():
