@@ -1,5 +1,7 @@
 
 
+##==> Базовые пакеты (обязательные)
+#######################################
 BASE_PACKAGES = [
     "tumbler", "ffmpegthumbnailer", "lsd", "alacritty", "bat", "brightnessctl", "calc",
     "automake", "blueman", "bluez", "bluez-utils", "dunst", "fakeroot", "feh", "firefox",
@@ -16,16 +18,21 @@ BASE_PACKAGES = [
     "ttf-iosevka-nerd"
 ]
 
-DEV_PACKAGES = [
-    "cheese", "screenkey", "timeshift", "pinta", "kdenlive", "wireshark-qt",
-    "filezilla", "ghex", "chromium", "keepassxc", "audacity", "gufw", "python-pywal",
-    "bleachbit", "veracrypt", "homebank", "gtkhash", "gnome-firmware", "touche", "dconf-editor",
-    "neovim", "obs-studio", "telegram-desktop", "tmux", "youtube-dl", "code", "cowsay",
-    "deluge-gtk", "flameshot", "sqlitebrowser", "obsidian", "python-pip", "bpython", "ipython", "cloc",
-]
-
 AUR_PACKAGES = [
     "cava", "i3lock-color", "ptpython", "greenclip"
+]
+
+
+##==> Дев пакеты (не обязательные)
+#######################################
+DEV_PACKAGES = [
+    "timeshift", "bleachbit", "gnome-firmware", "touche", "neovim", "obs-studio", "telegram-desktop",
+    "tmux", "youtube-dl", "cowsay", "flameshot", "sqlitebrowser", "obsidian",
+    "python-pip", "bpython", "ipython"
+]
+
+AUR_DEV_PACKAGES = [
+    "yandex-browser", "jetbrains-toolbox"
 ]
 
 GNOME_OFFICIAL_TOOLS = [

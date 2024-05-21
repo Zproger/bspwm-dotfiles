@@ -47,6 +47,7 @@ class SystemConfiguration:
     def __start_option_4():
         Logger.add_record("[+] Installed Dev Dependencies", status=LoggerStatus.SUCCESS)
         SystemConfiguration.__install_pacman_package(packages.DEV_PACKAGES)
+        SystemConfiguration.__install_aur_package(packages.AUR_DEV_PACKAGES)
         SystemConfiguration.__install_pacman_package(packages.GNOME_OFFICIAL_TOOLS)
 
     @staticmethod
