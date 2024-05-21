@@ -1,20 +1,11 @@
 
-
-# reloads sxhkd configuration:
+# reload sxhkd configuration
 super + Escape + r
     pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config' -t 1500
-
-# Launch Terminal
-super + Return
-    alacritty
 
 # Hide or Unhide Polybar
 super + p
 	sh $HOME/bin/toggle-polybar
-
-# Set random wallpaper
-super + w
-	sh $HOME/bin/random_wallpaper
 
 # Change language
 Alt_L + shift
@@ -22,32 +13,41 @@ Alt_L + shift
 
 Shift_L + alt
 	sh $HOME/bin/change_language.sh
-    
-# Launch Rofi Menu
-super + {d,x}
-    {rofi -show drun,sh $HOME/bin/powermenu}
 
-# Launch Rofi Clipboard Menu
-super + v
-    sh $HOME/bin/rofi-menus/rofi-clipboard-manager.sh
+
+##==> LAUNCH APPLICATIONS
+##########################################################
 
 # Launch Applications
-super + shift + {f,n,p,t,c,v,i,x,q,k,l}
-	{firefox, \
-	thunar, \
+super + shift + {y,p,f,t,c,o}
+	{yandex-browser-stable, \
 	pavucontrol, \
+	firefox, \
 	telegram-desktop, \
-	code, \
-	virtualbox, \
-	firefox --private-window, \
-	sh $HOME/bin/xcolor-pick, \
-	sh $HOME/bin/bible, \
-	alacritty -e calcurse, \
-	sh $HOME/bin/screen-lock}
-     
-# Select window to close
-ctrl + super + alt + k
-	{xkill}
+	pycharm-professional, \
+	obsidian}
+
+# System Applications
+super + {Return,e,l,k,x}
+    {alacritty, \
+    thunar, \
+    sh $HOME/bin/screen-lock, \
+    alacritty -e calcurse, \
+    sh $HOME/bin/xcolor-pick}
+
+# Launch Rofi Menu
+super + {v,d,x}
+    {sh $HOME/bin/rofi-menus/rofi-clipboard-manager.sh, \
+     rofi -show drun, \
+     sh $HOME/bin/rofi-menus/powermenu}
+
+# screenshot
+Print
+    flameshot gui
+
+
+##==> CONTROLS
+##########################################################
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
@@ -57,22 +57,16 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 XF86MonBrightness{Up,Down}
     sh $HOME/bin/brightness{ --up, --down}
 
-# screenshot
-Print
-    flameshot gui
 
-#
-#
-# BSPWM HOTKEYS
-#
-#
+##==> BSPWM HOTKEYS
+##########################################################
 
 # quit/restart bspwm
 ctrl + shift + {q,r}
     bspc {quit,wm -r}
 
 # close and kill
-super + c
+super + q
     bspc node -c
 
 # alternate between the tiled and monocle layout
@@ -133,11 +127,6 @@ super + control {h,j,k,l}
 # Send the window to another edge of the screen
 super + {_,alt + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
-
-# move a floating window
-# TODO: Вызывает конфликт с другими комбинациями 
-#super + x + {h,j,k,l}
-# 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
