@@ -18,7 +18,7 @@ Shift_L + alt
 ##==> LAUNCH APPLICATIONS
 ##########################################################
 
-# Launch Applications
+##==> Launch Your Applications
 super + shift + {y,p,f,t,c,o}
 	{yandex-browser-stable, \
 	pavucontrol, \
@@ -27,21 +27,22 @@ super + shift + {y,p,f,t,c,o}
 	pycharm-professional, \
 	obsidian}
 
-# System Applications
-super + {Return,e,l,k,x}
+##==> System Applications
+super + {Return,e,l,k}
     {alacritty, \
     thunar, \
     sh $HOME/bin/screen-lock, \
-    alacritty -e calcurse, \
-    sh $HOME/bin/xcolor-pick}
+    alacritty -e calcurse}
+super + shift + {x}
+	{sh $HOME/bin/xcolor-pick}
 
-# Launch Rofi Menu
+##==> Launch Rofi Menu
 super + {v,d,x}
     {sh $HOME/bin/rofi-menus/rofi-clipboard-manager.sh, \
      rofi -show drun, \
      sh $HOME/bin/rofi-menus/powermenu}
 
-# screenshot
+##==> screenshot
 Print
     flameshot gui
 
