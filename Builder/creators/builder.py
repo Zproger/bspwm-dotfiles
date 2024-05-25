@@ -1,4 +1,8 @@
 import os
+import urllib.request
+import shutil
+import zipfile
+import subprocess
 import packages
 
 from logger import Logger, LoggerStatus
@@ -18,6 +22,7 @@ class SystemConfiguration:
         if args[2]: SystemConfiguration.__start_option_3()
         if args[3]: SystemConfiguration.__start_option_4()
         if args[4]: GraphicDrivers.build()
+        if args[5]: SystemConfiguration.__start_option_6()
         # TODO: The process should not be repeated when reassembling, important components should only be updated with new ones
         Daemons.enable_all_daemons()
         PatchSystemBugs.enable_all_patches()
@@ -49,6 +54,67 @@ class SystemConfiguration:
         SystemConfiguration.__install_pacman_package(packages.DEV_PACKAGES)
         SystemConfiguration.__install_aur_package(packages.AUR_DEV_PACKAGES)
         SystemConfiguration.__install_pacman_package(packages.GNOME_OFFICIAL_TOOLS)
+
+    @staticmethod
+    def __start_option_6():
+        repo_url = "https://github.com/catppuccin/grub/archive/refs/heads/main.zip"
+        theme_zip_path = "/tmp/catppuccin-grub-theme.zip"
+        extract_to = "/tmp"
+        theme_path = "/boot/grub/themes/catppuccin-mocha-grub-theme"
+        grub_config_path = "/etc/default/grub"
+
+        try:
+            ##==> Скачивание темы
+            Logger.add_record("[+] Downloading theme...", status=LoggerStatus.SUCCESS)
+            with urllib.request.urlopen(repo_url) as response, open(theme_zip_path, 'wb') as out_file:
+                shutil.copyfileobj(response, out_file)
+
+            ##==> Распаковка архива
+            Logger.add_record("[+] Unpacking the archive...", status=LoggerStatus.SUCCESS)
+            with zipfile.ZipFile(theme_zip_path, 'r') as zip_ref:
+                zip_ref.extractall(extract_to)
+
+            ##==> Перемещение темы в нужную папку
+            Logger.add_record("[+] Installing theme...", status=LoggerStatus.SUCCESS)
+            extracted_theme_path = os.path.join(extract_to, "grub-main/src/catppuccin-mocha-grub-theme")
+            subprocess.run(["sudo", "mv", extracted_theme_path, theme_path], check=True)
+
+            if not os.path.exists(theme_path):
+                raise Exception("Failed to move theme to the GRUB directory.")
+
+            ##==> Обновление файла конфигурации GRUB
+            Logger.add_record("[+] Updating GRUB configuration...", status=LoggerStatus.SUCCESS)
+            with open(grub_config_path, 'r') as file:
+                grub_config = file.readlines()
+
+            grub_theme_setting = f"GRUB_THEME={theme_path}/theme.txt\n"
+            grub_config = [line for line in grub_config if not line.startswith("GRUB_THEME")]
+            grub_config.append(grub_theme_setting)
+
+            with open(grub_config_path, 'w') as file:
+                file.writelines(grub_config)
+
+            subprocess.run(["sudo", "update-grub"], check=True)
+            Logger.add_record("[+] The GRUB theme has been successfully installed!", status=LoggerStatus.SUCCESS)
+        except Exception as e:
+            Logger.add_record(f"[!] An error occurred: {e}", status=LoggerStatus.ERROR)
+            SystemConfiguration.__option_6_rollback_changes(theme_zip_path, theme_path)
+
+    @staticmethod
+    def __option_6_rollback_changes(theme_zip_path, theme_path):
+        Logger.add_record("[+] Rolling back changes...", status=LoggerStatus.SUCCESS)
+        if os.path.exists(theme_zip_path):
+            try:
+                os.remove(theme_zip_path)
+                Logger.add_record("[+] Removed temporary theme zip file.", status=LoggerStatus.SUCCESS)
+            except OSError as e:
+                Logger.add_record(f"[!] Error removing temporary theme zip file: {e}", status=LoggerStatus.SUCCESS)
+        if os.path.exists(theme_path):
+            try:
+                subprocess.run(["sudo", "rm", "-r", theme_path], check=True)
+                Logger.add_record("[+] Removed theme directory.", status=LoggerStatus.SUCCESS)
+            except subprocess.CalledProcessError as e:
+                Logger.add_record(f"[!] Error removing theme directory: {e}", status=LoggerStatus.SUCCESS)
 
     @staticmethod
     # TODO: Make a universal function for installing packages

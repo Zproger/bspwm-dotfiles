@@ -37,4 +37,7 @@ class UserInterface:
         print("5) Install Nvidia & Intel Drivers? [Y/n] ", end="")
         option_5 = UserInterface.is_verify_response(input())
 
-        return [option_1, option_2, option_3, option_4, option_5]
+        print("6) Install custom GRUB theme? [Y/n] ", end="")
+        option_6 = UserInterface.is_verify_response(input())
+
+        return [option_1, option_2, option_3, option_4, option_5, option_6]

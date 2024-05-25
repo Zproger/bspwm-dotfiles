@@ -19,7 +19,7 @@ BASE_PACKAGES = [
 ]
 
 AUR_PACKAGES = [
-    "cava", "i3lock-color", "ptpython", "greenclip"
+    "cava", "i3lock-color", "ptpython", "greenclip", "update-grub"
 ]
 
 
