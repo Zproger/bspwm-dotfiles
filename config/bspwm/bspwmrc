@@ -44,7 +44,6 @@ xrdb merge ~/.Xresources
 
 # python script to always initialize with a different wallpaper:
 # TODO: Add loading of basic scripts
-~/.config/bspwm/scripts/launch.sh &
 ~/.config/polybar/launch.sh
 
 # launch notification daemon
@@ -55,7 +54,7 @@ pkill battery-alert; ~/bin/battery-alert &
 pgrep -x redshift > /dev/null || redshift &
 
 # start compositor
-picom --config $HOME/.config/bspwm/picom_configurations/1.conf &
+picom --config $HOME/.config/bspwm/picom_configurations/config.conf &
 
 # autostart
 flameshot &
