@@ -60,3 +60,6 @@ picom --config $HOME/.config/bspwm/picom_configurations/config.conf &
 flameshot &
 greenclip daemon &
 
+# Set wallpapers
+feh --no-fehbg --bg-fill ~/Images/system/background.png
+
