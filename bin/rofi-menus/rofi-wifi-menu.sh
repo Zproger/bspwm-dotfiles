@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# ┏━━━┳━━┳━┓┏━┳━━━┳┓╋╋┏━━┳━┓┏━┓
+# ┗┓┏┓┣┫┣┫┃┗┛┃┃┏━━┫┃╋╋┗┫┣┻┓┗┛┏┛
+# ╋┃┃┃┃┃┃┃┏┓┏┓┃┗━━┫┃╋╋╋┃┃╋┗┓┏┛
+# ╋┃┃┃┃┃┃┃┃┃┃┃┃┏━━┫┃╋┏┓┃┃╋┏┛┗┓
+# ┏┛┗┛┣┫┣┫┃┃┃┃┃┃╋╋┃┗━┛┣┫┣┳┛┏┓┗┓
+# ┗━━━┻━━┻┛┗┛┗┻┛╋╋┗━━━┻━━┻━┛┗━┛
+# The program was created by DIMFLIX
+# https://github.com/DIMFLIX-OFFICIAL/rofi-sys-tools
+
+
 # Проверяем, запущен ли NetworkManager
 if ! pgrep -x "NetworkManager" > /dev/null; then
   echo -n "Root Password: "

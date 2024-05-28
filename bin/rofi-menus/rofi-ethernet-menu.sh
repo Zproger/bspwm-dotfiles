@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 
+# ┏━━━┳━━┳━┓┏━┳━━━┳┓╋╋┏━━┳━┓┏━┓
+# ┗┓┏┓┣┫┣┫┃┗┛┃┃┏━━┫┃╋╋┗┫┣┻┓┗┛┏┛
+# ╋┃┃┃┃┃┃┃┏┓┏┓┃┗━━┫┃╋╋╋┃┃╋┗┓┏┛
+# ╋┃┃┃┃┃┃┃┃┃┃┃┃┏━━┫┃╋┏┓┃┃╋┏┛┗┓
+# ┏┛┗┛┣┫┣┫┃┃┃┃┃┃╋╋┃┗━┛┣┫┣┳┛┏┓┗┓
+# ┗━━━┻━━┻┛┗┛┗┻┛╋╋┗━━━┻━━┻━┛┗━┛
+# The program was created by DIMFLIX
+# https://github.com/DIMFLIX-OFFICIAL/rofi-sys-tools
+
+
+# Если запущено с аргументом status, проверяем подключение Ethernet и выводим иконку
+# P.S - это сделано для удобной конфигурации polybar
 if [[ $1 == "status" ]]; then
-  # Если запущено с аргументом status, проверяем подключение Ethernet и выводим иконку
   if nmcli -t -f TYPE,STATE device status | grep 'ethernet:connected' > /dev/null; then
     echo "%{F#A3BE8C}󰈁%{F-}" # зеленый для подключенного состояния
   else
