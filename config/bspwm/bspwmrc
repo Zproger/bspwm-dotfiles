@@ -36,6 +36,7 @@ bspc config pointer_action3 resize_corner
 
 # rules
 bspc rule -a feh state=floating
+# bspc rule -a '*:status-icon' state=floating hidden=on # Убирает status-icon у yandex-browser
 # bspc rule -a firefox state=floating
 # bspc rule -a firefox desktop='^2' follow=on
 
