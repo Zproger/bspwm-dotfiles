@@ -1,22 +1,21 @@
-<h1 align="center"> :herb: ZProger Build :herb: </h1>
+<h1 align="center"> 🐾 Meowrch OS  </h1>
 
 <!-- BADGES -->
-</br>
 
 <p align="center">
-  <img src="https://img.shields.io/github/issues/zproger/bspwm-dotfiles?style=for-the-badge">
-  </br>
-  <img src="https://img.shields.io/github/languages/count/zproger/bspwm-dotfiles?style=for-the-badge">
-  <img src="https://img.shields.io/github/repo-size/Zproger/bspwm-dotfiles?style=for-the-badge">
+  <img src="https://img.shields.io/github/issues/DIMFLIX-OFFICIAL/meowrch?style=for-the-badge">
+  <img src="https://img.shields.io/github/stars/DIMFLIX-OFFICIAL/meowrch?style=for-the-badge">
+  <img src="https://img.shields.io/github/license/DIMFLIX-OFFICIAL/meowrch?style=for-the-badge">
   </br>
 </p>
 
 <!-- INFORMATION -->
-<h1 align="left"> :blue_book: About</h1> 
+<h1 align="left"> 📝 О проекте</h1> 
+<p>MeowrchOS - сборка, основанная на Arch, заточенная под максимальную производительность, а так-же эргономичность.
+В первую очередь она предназначена для владельца данного репозитория, но при этом вы имеете все права и возможности
+использовать данный setup.</p><br>
 
-<img src="demonstration/1.png" alt="rice" align="right" width="500px">
-
-</br>
+<img src=".meta/preview.png" alt="rice" align="right" width="500px">
 
  - OS: [**`Arch Linux`**](https://archlinux.org/)
  - WM: [**`BSPWM`**](https://github.com/baskerville/bspwm)
@@ -31,81 +30,87 @@
 
 
 <!-- IMAGES -->
-## 🖼️ Gallery
-![gallery](demonstration/1.png)
-![gallery](demonstration/2.png)
-![gallery](demonstration/3.png)
-![gallery](demonstration/4.png)
-![gallery](demonstration/5.png)
-![gallery](demonstration/6.png)
-![gallery](demonstration/7.png)
+## 🖼️ Мини-обзор
+![gallery](.meta/preview2.png)
+![gallery](.meta/preview3.png)
+![gallery](.meta/preview4.png)
+![gallery](.meta/preview5.png)
+![gallery](.meta/preview6.png)
 
 
 <!-- FEATURES -->
-## 🚀 Features
-* Customizing software on the system.
-* Support for over 300 dynamic wallpapers.
-* Lots of handy scripts in bin/.
-* Convenient custom configuration of Firefox.
-* All hotkeys are honed for maximum productivity.
-* A very lightweight system that consumes less than 700mb of memory.
-* Automatic installation and configuration of all basic software for development.
+## 🚀 Особенности
+* Гибкая настройка программного обеспечения в системе.
+* Множество удобных скриптов в bin/.
+* Удобная пользовательская настройка Firefox.
+* Все горячие клавиши запрещены для обеспечения максимальной производительности.
+* Очень легкая система, которая потребляет менее 1гб памяти.
+* Автоматическая установка и настройка всего базового программного обеспечения для разработки.
+* Красивая тема "Catppuccin" по умолчанию.
+* Кастомный GRUB.
+* Постоянная поддержка проекта, т.к я сам ее повседневно использую
 
-**And more features: [EN](Docs/03_all_features_and_tricks_english.md), [RU](Docs/02_all_features_and_tricks_russian.md)**
+**И множество других фич: [EN](Docs/03_all_features_and_tricks_english.md), [RU](Docs/02_all_features_and_tricks_russian.md)**
 
-<table align="center">
-   <tr>
-      <th align="center">
-         <sup>:warning: WARNING :warning:</sup>
-      </th>
-   </tr>
-   <tr>
-      <td align="center">
-        THIS CONFIGURATION IS DESIGNED FOR 1920X1080 MONITORS,
-        SOME FUNCTIONALITY OF THE SHELL MAY NOT WORK AS IT SHOULD.
-        IN THIS CASE YOU NEED TO MAKE ADJUSTMENTS MANUALLY.
-        IF YOU FIND ERRORS IN THE SHELL, PLEASE REPORT THE PROBLEM.
-   </tr>
-   </table>
-
+> [!WARNING]
+> ДАННАЯ КОНФИГУРАЦИЯ ПРЕДНАЗНАЧЕНА ДЛЯ МОНИТОРОВ С РАЗРЕШЕНИЕМ 1920X1080,
+> НЕКОТОРЫЕ ФУНКЦИИ ОБОЛОЧКИ МОГУТ РАБОТАТЬ НЕПРАВИЛЬНО.
+> В ЭТОМ СЛУЧАЕ ВАМ НЕОБХОДИМО ВНЕСТИ ИЗМЕНЕНИЯ ВРУЧНУЮ.
+> ЕСЛИ ВЫ ОБНАРУЖИТЕ ОШИБКИ В ОБОЛОЧКЕ, ПОЖАЛУЙСТА, СООБЩИТЕ О ПРОБЛЕМЕ.
 
 <!-- INSTALLATION -->
-## :blue_book: Installation
-A guide to installing the system and graphical shell via builder: [EN](Docs/01_installing_arch_linux_with_bspwm_english.md), [RU](Docs/00_installing_arch_linux_with_bspwm_russian.md). 
+## 🛠 Установка
+Если у вас уже установлен Linux Arch, то выполняем следующие действия:
+1. Устанавливаем базовые пакеты
+   ```
+    sudo pacman -Sy
+    sudo pacman -S xorg bspwm sxhkd xorg-xinit xterm git python3
+    ```
+2. Редактируем конфигурацию xinitrc \
+   `micro /etc/X11/xinit/xinitrc` \
+   Вам нужно отключить любые другие строки exec и добавить в конец файла строку:
+   `exec bspwm`
+3. Загрузим репозиторий и начнем процесс установки. Не советую редактировать `BASE_PACKAGES`, так как они необходимы для правильной работы оболочки, однако вы свободно можете редактировать другие виды пакетов. На этапе билдера вам будет предложено установить `DEV_PACKAGES`, они не нужны для системы, но могут быть полезны для разработки. Выбирайте пункты на свое усмотрение.
+   ```
+   git clone https://github.com/DIMFLIX-OFFICIAL/meowrch.git
+   cd meowrch
+   sudo python3 Builder/install.py
+   ```
+4. Если вы сделали всё правильно, то уже можно начать пользоваться сборкой. `startx`
 
+Полное руководство по установке системы и графической оболочки с помощью builder: [EN](Docs/01_installing_arch_linux_with_bspwm_english.md), [RU](Docs/00_installing_arch_linux_with_bspwm_russian.md). 
 
 <!-- ERRORS -->
-## :moyai: Post-installation fixes
-Complete instructions for corrections: https://youtu.be/9zewiGf7j-A
-* **The brightness of the screen is not displayed on the bar**. This error is due to the fact that the Builder was unable to automatically install drivers for the video card or processor. You need to go to [Arch Wiki](https://wiki.archlinux.org/) and do the installation manually.
-* **The battery is not displayed on the bar**. You need to open `~/bin/battery-alert` and change the `battery` variable to your battery value. Then go to `~/.config/polybar/modules.ini` and edit the `[module/battery]` module according to the polybar instructions to match your `battery` and `adapter` data.
-* **Hangs animation or terminals**. The problem is that you may not be using graphics drivers or may be working from a virtual machine. You need to open `~/.config/bspwm/bspwmrc` and comment out the line with the `picom` startup.
-* **Interface problem**. If you are not using a `1920x1080 monitor`, the interface may not look like it should. In that case you need to manually edit the configuration.
-* **User name error**. At this point, the configuration is installed locally on the user from where the builder was running. Also the username must be `user` for the system to work properly. If you get this error, you need to create a new user named `user` and redo the installation.
-* **Other errors**. If you find bugs that aren't listed here and you're sure you followed the manual, then be sure to contact us so we can fix the bug in the next update.
+## 🩹 Исправление ошибок после установки
+* **Яркость экрана не отображается на панели**. Эта ошибка связана с тем, что билдеру не удалось автоматически установить драйверы для видеокарты или процессора. Вам необходимо перейти на [Arch Wiki](https://wiki.archlinux.org) и выполнить установку вручную.
+* **Уровень заряда батареи не отображается на панели**. Вам необходимо открыть `~/bin/battery-alert` и изменить значение параметра `battery` на значение вашего заряда батареи. Затем перейдите в `~/.config/polybar/modules.ini` и отредактируйте модуль `[module/battery]` в соответствии с инструкциями polybar, чтобы он соответствовал вашим данным "battery" и "adapter".
+* **Зависает анимация или терминалы**. Проблема в том, что вы, возможно, не используете графические драйверы или работаете с виртуальной машины. Вам нужно открыть "~/.config/bspwm/bspwmrc" и закомментировать строку с запуском `picom`.
+* **Проблема с интерфейсом**. Если вы не используете монитор с разрешением 1920x1080, интерфейс может выглядеть не так, как должен выглядеть. В этом случае вам необходимо вручную отредактировать конфигурацию.
+* **Ошибка в имени пользователя**. На этом этапе конфигурация устанавливается локально для пользователя, с которого был запущен конструктор. Также имя пользователя должно быть "user", чтобы система работала должным образом. Если вы получите эту ошибку, вам нужно создать нового пользователя с именем `user` и повторить установку.
+* **Другие ошибки**. Если вы обнаружили ошибки, которых здесь нет, и уверены, что следовали инструкциям, обязательно свяжитесь с нами, чтобы мы могли исправить ошибку в следующем обновлении.
 
 
 <!-- HOTKEYS -->
 ## 💻 HotKeys
-* **Open the terminal** - `super + enter`
-* **Set a random wallpaper** - `super + w`
-* **Switch the layout** - `shift + alt`
-* **Open the application menu** - `super + d`
-* **Derive a random verse from the Bible** - `super + shift + q`
-* **Open the browser in incognito mode** - `super + shift + i`
-* **Recognize the color on the screen** - `super + shift + x`
-* **Lock the screen** - `super + shift + l`
-* **Open the console calendar** - `super + shift + k`
-* **Launch Telegram** - `super + shift + t`
-* **Close the window that is in focus** - `super + c`
-* **Take a screenshot** - `print`
-* **Restart bspwm** - `ctrl + shift + r`
-* **Switch to another desktop** - `super + 1/6`
-* **Move the window to another desktop** - `super + shift + 1/6`
-* **Switch the window to floating mode** - `super + space`
+* **Открыть терминал** - `super + enter`
+* **Сменить раскладку** - `shift + alt`
+* **Открыть меню приложений** - `super + d`
+* **Завершить сеанс** - `super + x`
+* **Распознать цвет на экране** - `super + c`
+* **Заблокировать экран** - `super + l`
+* **Открыть календарь** - `super + k`
+* **Запустить firefox** - `super + shift + f`
+* **Закрыть активное окно** - `super + q`
+* **Сделать скриншот** - `print`
+* **Перезапустить bspwm** - `ctrl + shift + r`
+* **Переключиться на другую рабочую область** - `super + 1/9`
+* **Перенести активное окно на другую рабочую область** - `super + shift + 1/9`
+* **Перевести активное окно в плавающий режим** - `super + space`
 
-The other hotkeys are in `~/.config/sxhkd/sxhkdrc`.
+Остальная конфигурация находится в `~/.config/sxhkd/sxhkdrc`.
 
-#
+***
 
-The project is actively developing, so you can offer your ideas for improvements and visit our [YouTube channel](https://youtube.com/@zproger) and [Telegram](https://t.me/codeblog8). Go to the `Projects` tab to keep track of current shell updates and future improvements.
+Проект активно развивается, поэтому вы можете предложить свои идеи по улучшению. 
+Если остались вопросы, - добро пожаловать в телеграм: `@dimflix_official` \
+Отдельная благодарность за толчок в этом направлении - [Zproger](https://github.com/Zproger) ❤️
