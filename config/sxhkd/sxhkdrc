@@ -38,19 +38,15 @@ super + shift + {y,p,f,t,c,o}
 	obsidian}
 
 ##==> System Applications
-super + {Return,e,l,k}
+super + {Return,e,l,k,c,v,d,x}
     {alacritty, \
     thunar, \
     sh $HOME/bin/screen-lock, \
-    alacritty -e calcurse}
-super + shift + {x}
-	{sh $HOME/bin/xcolor-pick}
-
-##==> Launch Rofi Menu
-super + {v,d,x}
-    {sh $HOME/bin/rofi-menus/rofi-clipboard-manager.sh, \
-     rofi -show drun, \
-     sh $HOME/bin/rofi-menus/powermenu}
+    alacritty -e calcurse, \
+    sh $HOME/bin/xcolor-pick, \
+    sh $HOME/bin/rofi-menus/rofi-clipboard-manager.sh, \
+    rofi -show drun, \
+    sh $HOME/bin/rofi-menus/powermenu}
 
 ##==> screenshot
 Print
