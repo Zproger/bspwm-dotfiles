@@ -1,8 +1,6 @@
 This file contains the command sequence that is needed to fully install an Arch Linux system.
 It also includes the use of the builder from the repository, which automatically deploys the BSPWM environment.
 
-This is where the most up to date commands are stored. For ease of understanding, I recommend watching this [video](https://youtu.be/9zewiGf7j-A), comparing it to the instructions (but prioritize the commands with this file first).
-
 ### Connect to WiFi (optional)
 ```bash
 iwctl
@@ -184,9 +182,9 @@ At the builder stage you will be prompted to install `DEV_PACKAGES`, these are n
 
 and build the shell using these commands:
 ```bash
-git clone https://github.com/Zproger/bspwm-dotfiles.git
-cd bspwm-dotfiles
-python3 Builder/install.py
+git clone https://github.com/DIMFLIX-OFFICIAL/meowrch.git
+cd meowrch
+sudo python3 Builder/install.py
 ```
 
 In the menu you need to give permission to install `dotfiles`, update bases, install `BASE_PACKAGES`. The rest of the options are up to you.
