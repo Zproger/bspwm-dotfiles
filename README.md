@@ -31,6 +31,7 @@
 
 <!-- IMAGES -->
 ## 🖼️ Мини-обзор
+![gallery](.meta/preview1.png)
 ![gallery](.meta/preview2.png)
 ![gallery](.meta/preview3.png)
 ![gallery](.meta/preview4.png)
