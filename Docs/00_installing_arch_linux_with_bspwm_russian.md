@@ -184,7 +184,7 @@ exec bspwm
 ```bash
 git clone https://github.com/DIMFLIX-OFFICIAL/meowrch.git
 cd meowrch
-sudo python3 Builder/install.py
+python3 Builder/install.py
 ```
 
 В меню необходимо предоставить разрешение на установку `dotfiles`, обновление баз, установку `BASE_PACKAGES`. Остальные пункты выбирайте самостоятельно.

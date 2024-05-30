@@ -74,7 +74,7 @@
    ```
    git clone https://github.com/DIMFLIX-OFFICIAL/meowrch.git
    cd meowrch
-   sudo python3 Builder/install.py
+   python3 Builder/install.py
    ```
 4. Если вы сделали всё правильно, то уже можно начать пользоваться сборкой. `startx`
 

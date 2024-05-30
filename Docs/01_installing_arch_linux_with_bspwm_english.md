@@ -184,7 +184,7 @@ and build the shell using these commands:
 ```bash
 git clone https://github.com/DIMFLIX-OFFICIAL/meowrch.git
 cd meowrch
-sudo python3 Builder/install.py
+python3 Builder/install.py
 ```
 
 In the menu you need to give permission to install `dotfiles`, update bases, install `BASE_PACKAGES`. The rest of the options are up to you.

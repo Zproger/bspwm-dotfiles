@@ -84,6 +84,9 @@ class SystemConfiguration:
 
             ##==> Обновление файла конфигурации GRUB
             Logger.add_record("[+] Updating GRUB configuration...", status=LoggerStatus.SUCCESS)
+
+            temp_grub_config_path = "/tmp/grub"
+
             with open(grub_config_path, 'r') as file:
                 grub_config = file.readlines()
 
@@ -91,8 +94,10 @@ class SystemConfiguration:
             grub_config = [line for line in grub_config if not line.startswith("GRUB_THEME")]
             grub_config.append(grub_theme_setting)
 
-            with open(grub_config_path, 'w') as file:
+            with open(temp_grub_config_path, 'w') as file:
                 file.writelines(grub_config)
+
+            subprocess.run(["sudo", "mv", temp_grub_config_path, grub_config_path], check=True)
 
             subprocess.run(["sudo", "update-grub"], check=True)
             Logger.add_record("[+] The GRUB theme has been successfully installed!", status=LoggerStatus.SUCCESS)
