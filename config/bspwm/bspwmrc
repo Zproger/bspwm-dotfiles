@@ -51,7 +51,6 @@ xrdb merge ~/.Xresources
 dunst -config $HOME/.config/bspwm/dunstrc &
 
 # launch battery tracker and redshift
-pkill battery-alert; ~/bin/battery-alert &
 pgrep -x redshift > /dev/null || redshift &
 
 # start compositor
