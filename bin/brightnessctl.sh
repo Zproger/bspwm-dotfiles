@@ -15,9 +15,18 @@ get_backlight_device() {
     if [ -z "$devices" ]; then
         echo "none"
     else
-        echo $devices | awk '{print $1}' # Возвращает первое доступное устройство
-    fi
+        local name_device=$(echo $devices | awk '{print $1}') # Выбирем первй монитор с регулировкой яркости
+        local status=$(cat /sys/class/backlight/$name_device/device/enabled) # Получим статус экрана с регулировкой яркости
+
+        # Проверка на включение экрана с регулировкой яркости
+        if [[ "$status" == "disabled" ]]; then
+            echo "none"
+        else
+            echo $name_device
+        fi
+    fi 
 }
+
 
 # Функция для получения текущей яркости
 get_brightness() {
