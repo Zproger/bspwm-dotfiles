@@ -1,26 +1,55 @@
 #!/bin/bash
 
-BRIGHTNESS_VALUE=`brightnessctl | grep -o "(.*" | tr -d "()"`
-BRIGHTNESS_NR=${BRIGHTNESS_VALUE//%}
+# ┏━━━┳━━┳━┓┏━┳━━━┳┓╋╋┏━━┳━┓┏━┓
+# ┗┓┏┓┣┫┣┫┃┗┛┃┃┏━━┫┃╋╋┗┫┣┻┓┗┛┏┛
+# ╋┃┃┃┃┃┃┃┏┓┏┓┃┗━━┫┃╋╋╋┃┃╋┗┓┏┛
+# ╋┃┃┃┃┃┃┃┃┃┃┃┃┏━━┫┃╋┏┓┃┃╋┏┛┗┓
+# ┏┛┗┛┣┫┣┫┃┃┃┃┃┃╋╋┃┗━┛┣┫┣┳┛┏┓┗┓
+# ┗━━━┻━━┻┛┗┛┗┻┛╋╋┗━━━┻━━┻━┛┗━┛
+# The program was created by DIMFLIX
+
+
+# Функция для определения доступного устройства управления яркостью
+get_backlight_device() {
+    local devices=$(ls /sys/class/backlight/)
+    if [ -z "$devices" ]; then
+        echo "none"
+    else
+        echo $devices | awk '{print $1}' # Возвращает первое доступное устройство
+    fi
+}
+
+# Функция для получения текущей яркости
+get_brightness() {
+    brightnessctl -d "$1" | grep -o "(.*" | tr -d "()"
+}
+
+BRIGHTNESS_DEVICE=$(get_backlight_device)
 BRIGHTNESS_ICON='%{F#61afef} %{F-}'
+
+if [ "$BRIGHTNESS_DEVICE" = "none" ]; then
+    exit 1
+fi
+
+BRIGHTNESS_VALUE=$(get_brightness "$BRIGHTNESS_DEVICE")
 
 case "$1" in
     up)
-        brightnessctl set +5%
+        brightnessctl -d "$BRIGHTNESS_DEVICE" set +5%
         ;;
     down)
-        brightnessctl set 5%-
+        brightnessctl -d "$BRIGHTNESS_DEVICE" set 5%-
         ;;
     max)
-        brightnessctl set 100%
+        brightnessctl -d "$BRIGHTNESS_DEVICE" set 100%
         ;;
     min)
-        brightnessctl set 1%
+        brightnessctl -d "$BRIGHTNESS_DEVICE" set 1%
         ;;
     status)
         echo "$BRIGHTNESS_ICON $BRIGHTNESS_VALUE"
         ;;
     *)
-        echo "Invalid argument. Use 'up', 'down', or 'status'."
+        echo "Invalid argument. Use 'up', 'down', 'max', 'min', or 'status'."
         ;;
 esac
