@@ -156,3 +156,5 @@ class SystemConfiguration:
         os.system("cp -r themes ~/.themes")
         os.system("cp xinitrc ~/.xinitrc")
         os.system("cp -r bin/ ~/")
+        os.system("mkdir -p ~/.icons/default")
+        os.system("cp icons/default/index.theme ~/.icons/default/index.theme")
