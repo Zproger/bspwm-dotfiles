@@ -7,6 +7,9 @@ Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
 Xft.dpi:   100
 
+Xcursor.theme: Bibata-Modern-Classic
+Xcursor.size: 20
+
 st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=20
 
 ! window border inner

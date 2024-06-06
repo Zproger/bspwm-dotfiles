@@ -20,7 +20,8 @@ BASE_PACKAGES = [
 ]
 
 AUR_PACKAGES = [
-    "cava", "i3lock-color", "ptpython", "greenclip", "update-grub", "tela-circle-icon-theme-dracula"
+    "cava", "i3lock-color", "ptpython", "greenclip", "update-grub", "tela-circle-icon-theme-dracula",
+    "bibata-cursor-theme"
 ]
 
 
