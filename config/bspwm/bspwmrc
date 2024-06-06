@@ -61,5 +61,5 @@ flameshot &
 greenclip daemon &
 
 # Set wallpapers
-feh --no-fehbg --bg-fill ~/Images/system/background.png
+feh --no-fehbg --bg-fill ~/Wallpapers/current/background.png
 
