@@ -33,4 +33,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Terminal theme
 starship init fish | source
+
+# Pokemon
+pokemon-colorscripts --no-title -s -r

@@ -21,7 +21,7 @@ BASE_PACKAGES = [
 
 AUR_PACKAGES = [
     "cava", "i3lock-color", "ptpython", "greenclip", "update-grub", "tela-circle-icon-theme-dracula",
-    "bibata-cursor-theme", "picom-ftlabs-git"
+    "bibata-cursor-theme", "picom-ftlabs-git", "pokemon-colorscripts"
 ]
 
 
