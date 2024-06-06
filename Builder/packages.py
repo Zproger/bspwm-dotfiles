@@ -15,7 +15,7 @@ BASE_PACKAGES = [
     "vlc", "usbutils", "picom", "networkmanager-openvpn", "alsa-plugins", "alsa-tools", "alsa-utils", "ffmpeg",
     "p7zip", "gparted", "sshfs", "openvpn", "xclip", "gpick", "wget", "ueberzug", "netctl", "light", "libreoffice",
     "breeze", "vulkan-intel", "intel-ucode", "ttf-jetbrains-mono", "ttf-jetbrains-mono-nerd", "ttf-fira-code",
-    "ttf-iosevka-nerd", "playerctl", "starship", "upower", "zenity", "gvfs"
+    "ttf-iosevka-nerd", "playerctl", "starship", "upower", "zenity", "gvfs", "qt5ct", "qt6ct"
 ]
 
 AUR_PACKAGES = [
