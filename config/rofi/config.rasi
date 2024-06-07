@@ -8,7 +8,7 @@ configuration {
     display-window:              " ";
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
-    font:                        "JetBrainsMono Nerd Font 9";
+    font:                        "JetBrainsMono Nerd Font 10";
     icon-theme:                  "Tela-circle-dracula";
 }
 
@@ -44,7 +44,7 @@ dummywall {
     width:                       37em;
     expand:                      false;
     orientation:                 horizontal;
-    children:                    [ "mode-switcher" , "inputbar" ];
+    children:                    [ "mode-switcher" ];
     background-color:            transparent;
     background-image:            url("~/Wallpapers/current/background.png", height);
 }
@@ -74,19 +74,45 @@ button selected {
 // Inputs //
 inputbar {
     enabled:                     true;
-    children:                    [ "entry" ];
+    children:                    [ prompt, entry ];
+    spacing:                     0em;
+    padding:                     0em;
+    cursor:                      pointer;
     background-color:            transparent;
+    text-color:                  @main-fg;
 }
+
+prompt {
+	enabled:                     true;
+	padding:                     0.5em 1em 0.5em 1em;
+    text-align: center;
+    cursor:                      default;
+    background-color:            transparent;
+    text-color:                  @select-fg;
+    border:						 2px solid;
+    border-radius: 				 10px 0px 0px 10px;
+    border-color:                @main-br;
+    background-color:            @main-br;
+}
+
 entry {
-    enabled:                     false;
+    enabled:                     true;
+    padding:                     0.5em 0.5em 0.5em 0.5em;
+    cursor:                      text;
+    background-color:            transparent;
+    text-color:                  @main-fg;
+    border:						 2px solid;
+    border-radius: 				 0px 10px 10px 0px;
+    border-color:                @main-br;
+    background-color:            @main-bg;
 }
 
 
 // Lists //
 listbox {
-    spacing:                     0em;
+    spacing:                     2em;
     padding:                     2em;
-    children:                    [ "dummy" , "listview" , "dummy" ];
+    children:                    [ "inputbar" , "listview" , "dummy" ];
     background-color:            transparent;
 }
 listview {
@@ -94,7 +120,7 @@ listview {
     spacing:                     0em;
     padding:                     0em;
     columns:                     1;
-    lines:                       8;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
