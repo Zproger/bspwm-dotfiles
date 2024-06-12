@@ -29,6 +29,14 @@ function yy
     rm -f -- "$tmp"
 end
 
+function run_in_alacritty
+    # Проверяем, используется ли терминал Alacritty
+    if test "$TERM" = "alacritty"
+        # Выполняем команды, переданные в качестве аргументов к этой функции
+        eval $argv
+    end
+end
+
 #####################################
 ##==> Universal Variables
 #####################################
@@ -58,4 +66,9 @@ pyenv init - | source
 #####################################
 ##==> Fun Stuff
 #####################################
-pokemon-colorscripts --no-title -s -r
+run_in_alacritty pokemon-colorscripts --no-title -s -r
+
+#####################################
+##==> End
+#####################################
+functions -e run_in_alacritty
