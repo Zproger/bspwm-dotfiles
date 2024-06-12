@@ -1,7 +1,4 @@
 import = [
-  #"~/.config/alacritty/themes/catppuccin-latte.toml"
-  #"~/.config/alacritty/themes/catppuccin-frappe.toml"
-  #"~/.config/alacritty/themes/catppuccin-macchiato.toml"
   "~/.config/alacritty/themes/catppuccin-mocha.toml"
 ]
 
@@ -64,3 +61,7 @@ title = "Alacritty"
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
+
+[window.padding]
+x = 20
+y = 20
