@@ -1,40 +1,61 @@
+#####################################
+##==> General Environment Settings
+#####################################
+export LANG=en_US.UTF-8
+set -gx MICRO_TRUECOLOR 1
 
-# Create aliases
+#####################################
+##==> Aliases
+#####################################
 alias cls="clear"
 alias g="git"
 alias n="nvim"
 alias m="micro"
-
-# TODO: Replace journal aliases after switching to OpenRC
-
-# Display critical errors
 alias syslog_emerg="sudo dmesg --level=emerg,alert,crit"
-
-# Output common errors
 alias syslog="sudo dmesg --level=err,warn"
-
-# Print logs from x server
 alias xlog='grep "(EE)\|(WW)\|error\|failed" ~/.local/share/xorg/Xorg.0.log'
-
-# Remove archived journal files until the disk space they use falls below 100M
 alias vacuum="journalctl --vacuum-size=100M"
-
-# Make all journal files contain no data older than 2 weeks
 alias vacuum_time="journalctl --vacuum-time=2weeks"
 
-set -U fish_greeting
-set fish_color_command green
+#####################################
+##==> Custom Functions
+#####################################
+function yy
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
+#####################################
+##==> Universal Variables
+#####################################
+set -U fish_greeting ''
 set -gx EDITOR micro
 set -gx VISUAL micro
 set -gx BROWSER /usr/bin/firefox
 
-
+#####################################
+##==> Interactive Session Settings
+#####################################
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+   # Commands to run in interactive sessions can go here
 end
 
-# Terminal theme
+#####################################
+##==> Shell Customization
+#####################################
 starship init fish | source
 
-# Pokemon
+#####################################
+##==> Development Tools
+#####################################
+##==> Pyenv
+pyenv init - | source
+
+#####################################
+##==> Fun Stuff
+#####################################
 pokemon-colorscripts --no-title -s -r
