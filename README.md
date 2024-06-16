@@ -1,13 +1,19 @@
 <h1 align="center"> 🐾 Meowrch OS  </h1>
 
 <!-- BADGES -->
-
-<p align="center">
-  <img src="https://img.shields.io/github/issues/DIMFLIX-OFFICIAL/meowrch?style=for-the-badge">
-  <img src="https://img.shields.io/github/stars/DIMFLIX-OFFICIAL/meowrch?style=for-the-badge">
-  <img src="https://img.shields.io/github/license/DIMFLIX-OFFICIAL/meowrch?style=for-the-badge">
-  </br>
-</p>
+<div align="center">
+   <p></p>
+   <a href="https://github.com/DIMFLIX-OFFICIAL/meowrch/stargazers">
+      <img src="https://img.shields.io/github/stars/DIMFLIX-OFFICIAL/meowrch?color=C9CBFF&labelColor=1C2325&style=for-the-badge">
+   </a>
+   <a href="https://github.com/DIMFLIX-OFFICIAL/meowrch/issues">
+      <img src="https://img.shields.io/github/issues/DIMFLIX-OFFICIAL/meowrch?color=ffb29b&labelColor=1C2325&style=for-the-badge">
+   </a>
+   <a href="./LICENSE">
+      <img src="https://img.shields.io/github/license/DIMFLIX-OFFICIAL/meowrch?color=FCA2AA&labelColor=1C2325&style=for-the-badge">
+   </a>
+   <br>
+</div>
 
 <!-- INFORMATION -->
 <h1 align="left"> 📝 О проекте</h1> 
