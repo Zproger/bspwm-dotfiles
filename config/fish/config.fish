@@ -1,8 +1,10 @@
 #####################################
 ##==> General Environment Settings
 #####################################
-export LANG=en_US.UTF-8
+set -gx LANG en_US.UTF-8
 set -gx MICRO_TRUECOLOR 1
+set -gx _JAVA_AWT_WM_NONREPARTENTING 1
+set -gx _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 #####################################
 ##==> Aliases
