@@ -1,4 +1,4 @@
-<h1 align="center"> 🐾 Meowrch OS  </h1>
+<h1 align="center"> Meowrch OS ≽ܫ≼ </h1>
 
 <!-- BADGES -->
 <div align="center">
