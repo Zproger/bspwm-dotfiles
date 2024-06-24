@@ -16,7 +16,7 @@ BASE_PACKAGES = [
     "p7zip", "gparted", "sshfs", "openvpn", "xclip", "gpick", "wget", "ueberzug", "netctl", "light", "libreoffice",
     "breeze", "vulkan-intel", "intel-ucode", "ttf-jetbrains-mono", "ttf-jetbrains-mono-nerd", "ttf-fira-code",
     "ttf-iosevka-nerd", "playerctl", "starship", "upower", "zenity", "gvfs", "qt5ct", "qt6ct", "flameshot",
-    "timeshift"
+    "timeshift", "pyenv"
 ]
 
 AUR_PACKAGES = [
