@@ -1,5 +1,6 @@
 import os
 
+
 class PatchSystemBugs:
     @staticmethod
     def enable_all_patches():

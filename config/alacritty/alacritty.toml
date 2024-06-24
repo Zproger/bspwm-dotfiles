@@ -1,4 +1,6 @@
-import = ["/home/user/.config/alacritty/themes/custom.toml"]
+import = [
+  "~/.config/alacritty/themes/catppuccin-mocha.toml"
+]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -59,3 +61,7 @@ title = "Alacritty"
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
+
+[window.padding]
+x = 20
+y = 20

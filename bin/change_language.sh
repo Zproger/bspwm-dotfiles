@@ -1,11 +1,12 @@
-#! /bin/bash
+#!/bin/bash
 
-CURRENT_LAYOUT=$(setxkbmap -query | awk -F : 'NR==3{print $2}' | sed 's/ //g')
+CURRENT_LAYOUT=$(xset -q|grep LED| awk '{ print $10 }')
 
-if [ "$CURRENT_LAYOUT" = "us" ]; then
-    setxkbmap "ru"
-	notify-send "Lang: RU" -t 700
-else
-    setxkbmap "us"
-    notify-send "Lang: US" -t 700
+setxkbmap -layout us,ru -option "grp:alt_shift_toggle"
+if [ "$CURRENT_LAYOUT" = "00000000" ]; then
+	notify-send "Lang: US" -t 700
+fi
+
+if [ "$CURRENT_LAYOUT" = "00001000" ]; then
+    notify-send "Lang: RU" -t 700
 fi

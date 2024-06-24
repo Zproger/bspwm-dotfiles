@@ -4,11 +4,11 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # fix some Java applications
-# wmname LG3D
+wmname LG3D
 
 # workspaces
-bspc monitor primary -d 1 2 3 4 5 6 7
-bspc monitor LVDS-1 -d 7  # TODO: multiple monitors
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+#bspc monitor HDMI-A-0 -d 6 7 8 9  # multiple monitors
 
 bspc config focus_follows_pointer true
 
@@ -36,6 +36,7 @@ bspc config pointer_action3 resize_corner
 
 # rules
 bspc rule -a feh state=floating
+# bspc rule -a '*:status-icon' state=floating hidden=on # Убирает status-icon у yandex-browser
 # bspc rule -a firefox state=floating
 # bspc rule -a firefox desktop='^2' follow=on
 
@@ -44,19 +45,21 @@ xrdb merge ~/.Xresources
 
 # python script to always initialize with a different wallpaper:
 # TODO: Add loading of basic scripts
-~/.config/bspwm/scripts/launch.sh &
 ~/.config/polybar/launch.sh
 
 # launch notification daemon
 dunst -config $HOME/.config/bspwm/dunstrc &
 
 # launch battery tracker and redshift
-pkill battery-alert; ~/bin/battery-alert &
 pgrep -x redshift > /dev/null || redshift &
 
 # start compositor
-picom --config $HOME/.config/bspwm/picom_configurations/1.conf &
+picom --config $HOME/.config/bspwm/picom_configurations/config.conf &
 
 # autostart
 flameshot &
+greenclip daemon &
+
+# Set wallpapers
+feh --no-fehbg --bg-fill ~/Wallpapers/current/background.png
 
