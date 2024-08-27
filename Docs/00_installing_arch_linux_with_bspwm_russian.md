@@ -112,7 +112,7 @@ echo “arch” > /etc/hostname
 passwd
 
 # Добавляем нового пользователя и настраиваем права
-useradd -m -G wheel,users -s /bin/bash user
+useradd -m -G wheel,users,video -s /bin/bash user
 passwd user
 systemctl enable dhcpcd
 systemctl enable iwd.service
