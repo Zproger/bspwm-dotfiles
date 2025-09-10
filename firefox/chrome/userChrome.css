@@ -4,7 +4,7 @@
   --tabs-border: transparent !important; 
   --tab-border-radius: 0 !important; 
    
-  /* Color Variables */ 
+  /* Color Variables */
   --zproger-bg: #1a1b26;
   --zproger-icon-color: #e0fbfc;  
   --zproge-sidebar-color: #e0fbfc;
@@ -31,21 +31,6 @@
 .tabbrowser-tab[selected="true"] .tab-background {
   background: var(--zproger-tab-selected-bg) !important;
 }
-
-/* TODO: Some parameters are outdated, styles need to be rebuilt */
-/* .tabbrowser-tab::after,  */
-/* .tabbrowser-tab::before {  */
-/*   border-left: none !important;  */
-/* }  */
-/*  */
-/* .tab-background {  */
-/*   border: none !important;  */
-/* }  */
-/*  */
-/* .tabbrowser-arrowscrollbox {  */
-/*   margin-inline-start: 4px !important;  */
-/*   margin-inline-end: 0px !important;  */
-/* }  */
 
 
 /* Make all tabs small except selected one */ 
@@ -226,10 +211,11 @@ toolbar#nav-bar {
   padding: 4px !important; 
 } 
 
-#urlbar { 
-  max-width: 70% !important; 
-  margin: 0 15% !important; 
-} 
+/* TODO: URL Bar Bug */
+/* #urlbar {  */
+/*   max-width: 70% !important;  */
+/*   margin: 0 15% !important;  */
+/* }  */
 
 #urlbar-input:focus { 
   color: var(--zproger-urlbar-focused-color) !important; 
