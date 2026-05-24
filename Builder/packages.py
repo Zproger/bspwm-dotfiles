@@ -6,7 +6,7 @@ BASE_PACKAGES = [
     "bat",  # Улучшенная версия cat
     "evince",  # Читалка PDF
     "xdotool",  # Dependency for ~/bin/cursor_tracker.sh
-    "mesa", "lib32-mesa", "xf86-video-nouveau", "xf86-video-intel", "vulkan-intel"  # Necessary drivers
+    "mesa", "lib32-mesa", "xf86-video-nouveau", "xf86-video-intel", "vulkan-intel",  # Necessary drivers
     "nvtop", # Позволяет посмотреть нагрузку на GPU в режиме терминала
     "npm",  # Зависимость для других компонентов
     "brightnessctl",  # Используется для управления яркостью (bin/brightness)
