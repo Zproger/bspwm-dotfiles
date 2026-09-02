@@ -11,7 +11,9 @@ class Daemons:
 
     @staticmethod
     def __enable_mpd_daemon():
-        os.system("sudo systemctl --user enable mpd")
+        # mpd - пользовательский демон, поэтому запускается без sudo,
+        # иначе systemctl --user не может подключиться к сессионной шине D-Bus
+        os.system("systemctl --user enable mpd")
 
     @staticmethod
     def __enable_network_daemon():
