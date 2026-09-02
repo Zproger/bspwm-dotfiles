@@ -7,7 +7,7 @@ Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
 Xft.dpi:   100
 
-st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=20
+st.font:         JetBrainsMono Nerd Font:style=Medium:pixelsize=20
 
 ! window border inner
 st.opacity: 255
