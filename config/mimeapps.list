@@ -1,6 +1,6 @@
 [Default Applications]
-inode/directory=xfce4-file-manager.desktop
-x-scheme-handler/trash=xfce4-file-manager.desktop
+inode/directory=thunar.desktop
+x-scheme-handler/trash=thunar.desktop
 application/pdf=org.gnome.Evince.desktop
 text/x-python=micro.desktop
 image/jpeg=feh.desktop
@@ -19,11 +19,11 @@ application/x-extension-xht=firefox.desktop
 font/woff2=org.gnome.font-viewer.desktop
 
 [Added Associations]
-inode/directory=xfce4-file-manager.desktop;
-x-scheme-handler/trash=xfce4-file-manager.desktop;
+inode/directory=thunar.desktop;
+x-scheme-handler/trash=thunar.desktop;
 application/pdf=org.gnome.Evince.desktop;org.pwmt.zathura-pdf-mupdf.desktop;
 text/x-python=micro.desktop;
-image/jpeg=feh.desktop;userapp-feh --scale-down .-30F0K2.desktop;userapp-feh --scale-down-LYGPK2.desktop;org.gnome.gThumb.desktop;userapp-feh --scale-down *-4BG4K2.desktop;
+image/jpeg=feh.desktop;org.gnome.gThumb.desktop;
 application/x-shellscript=micro.desktop;
 image/png=feh.desktop;org.gnome.gThumb.desktop;
 text/plain=micro.desktop;org.gnome.gedit.desktop;
@@ -33,7 +33,7 @@ application/sql=sqlitebrowser.desktop;
 image/gif=feh.desktop;org.gnome.gThumb.desktop;
 application/ovf=xarchiver.desktop;
 application/x-zerosize=micro.desktop;org.gnome.gedit.desktop;
-application/vnd.sqlite3=audacity.desktop;
+application/vnd.sqlite3=sqlitebrowser.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/chrome=firefox.desktop;
