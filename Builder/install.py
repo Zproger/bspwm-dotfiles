@@ -1,9 +1,18 @@
+import sys
+
+from logger import Logger
 from options import UserInterface
 
 
 def main():
-    UserInterface.start()
-    print("Installation Completed Successfully")
+    try:
+        UserInterface.start()
+    except Exception:
+        Logger.exception("Установка прервана непредвиденной ошибкой")
+        Logger.summary()
+        sys.exit(1)
+
+    Logger.summary()
 
 
 if __name__ == "__main__":

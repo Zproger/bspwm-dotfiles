@@ -1,20 +1,25 @@
-import os
 import packages
 
-from logger import Logger, LoggerStatus
+from logger import Logger
+from shell import run
 from creators.software import AurBuilder, FirefoxCustomize
 from creators.patches import PatchSystemBugs
 from creators.daemons import Daemons
 
 
 class SystemConfiguration:
+    @staticmethod
     def start(*args):
-        start_text = f"[+] Starting assembly. Options {args}"
-        Logger.add_record(start_text, status=LoggerStatus.SUCCESS)
-        if args[0]: SystemConfiguration.__start_option_1()
-        if args[1]: SystemConfiguration.__start_option_2()
-        if args[2]: SystemConfiguration.__start_option_3()
-        if args[3]: SystemConfiguration.__start_option_4()
+        Logger.info(f"Запуск сборки. Опции: {args}")
+
+        if args[0]:
+            SystemConfiguration.__start_option_1()
+        if args[1]:
+            SystemConfiguration.__start_option_2()
+        if args[2]:
+            SystemConfiguration.__start_option_3()
+        if args[3]:
+            SystemConfiguration.__start_option_4()
 
         Daemons.enable_all_daemons()
         PatchSystemBugs.enable_all_patches()
@@ -26,50 +31,47 @@ class SystemConfiguration:
 
     @staticmethod
     def __start_option_2():
-        Logger.add_record("[+] Updates Enabled", status=LoggerStatus.SUCCESS)
-        os.system("sudo pacman -Syu")
+        run("sudo pacman -Syu", "Обновление базы пакетов Arch")
 
     @staticmethod
     def __start_option_3():
-        Logger.add_record("[+] Installed BSPWM Dependencies", status=LoggerStatus.SUCCESS)
+        Logger.info("Установка зависимостей BSPWM")
         AurBuilder.build()
-        SystemConfiguration.__install_pacman_package(packages.BASE_PACKAGES)
-        SystemConfiguration.__install_aur_package(packages.AUR_PACKAGES)
+        SystemConfiguration.__install_pacman_packages(packages.BASE_PACKAGES)
+        SystemConfiguration.__install_aur_packages(packages.AUR_PACKAGES)
         FirefoxCustomize.build()
 
     @staticmethod
     def __start_option_4():
-        Logger.add_record("[+] Installed Dev Dependencies", status=LoggerStatus.SUCCESS)
-        SystemConfiguration.__install_pacman_package(packages.DEV_PACKAGES)
+        Logger.info("Установка dev-зависимостей")
+        SystemConfiguration.__install_pacman_packages(packages.DEV_PACKAGES)
 
     @staticmethod
-    def __install_pacman_package(package_names: list):
+    def __install_pacman_packages(package_names: list):
         for package in package_names:
-            os.system(f"sudo pacman -S --noconfirm {package}")
-            Logger.add_record(f"Installed: {package}", status=LoggerStatus.SUCCESS)
+            run(f"sudo pacman -S --noconfirm {package}", f"Пакет (pacman): {package}")
 
     @staticmethod
-    def __install_aur_package(package_names: list):
+    def __install_aur_packages(package_names: list):
         for package in package_names:
-            os.system(f"yay -S --noconfirm {package}")
-            Logger.add_record(f"Installed: {package}", status=LoggerStatus.SUCCESS)
+            run(f"yay -S --noconfirm {package}", f"Пакет (AUR): {package}")
 
     @staticmethod
     def __create_default_folders():
-        Logger.add_record("[+] Create default directories", status=LoggerStatus.SUCCESS)
+        Logger.info("Создание директорий по умолчанию")
         default_folders = "~/Videos ~/Documents ~/Downloads " + \
                           "~/Music ~/Desktop"
-        os.system("mkdir -p ~/.config")
-        os.system(f"mkdir -p {default_folders}")
-        os.system("cp -r Images/ ~/")
+        run("mkdir -p ~/.config", "Создание ~/.config")
+        run(f"mkdir -p {default_folders}", "Создание пользовательских директорий")
+        run("cp -r Images/ ~/", "Копирование Images/")
 
     @staticmethod
     def __copy_bspwm_dotfiles():
-        Logger.add_record("[+] Copy Dotfiles & GTK", status=LoggerStatus.SUCCESS)
-        os.system("cp -r config/* ~/.config/")
-        os.system("cp Xresources ~/.Xresources")
-        os.system("cp gtkrc-2.0 ~/.gtkrc-2.0")
-        os.system("cp -r local ~/.local")
-        os.system("cp -r themes ~/.themes")
-        os.system("cp xinitrc ~/.xinitrc")
-        os.system("cp -r bin/ ~/")
+        Logger.info("Копирование dotfiles и GTK-тем")
+        run("cp -r config/* ~/.config/", "Копирование config/")
+        run("cp Xresources ~/.Xresources", "Копирование Xresources")
+        run("cp gtkrc-2.0 ~/.gtkrc-2.0", "Копирование gtkrc-2.0")
+        run("cp -r local ~/.local", "Копирование local/")
+        run("cp -r themes ~/.themes", "Копирование themes/")
+        run("cp xinitrc ~/.xinitrc", "Копирование xinitrc")
+        run("cp -r bin/ ~/", "Копирование bin/")

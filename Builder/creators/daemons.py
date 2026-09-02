@@ -1,4 +1,4 @@
-import os
+from shell import run
 
 
 class Daemons:
@@ -13,18 +13,18 @@ class Daemons:
     def __enable_mpd_daemon():
         # mpd - пользовательский демон, поэтому запускается без sudo,
         # иначе systemctl --user не может подключиться к сессионной шине D-Bus
-        os.system("systemctl --user enable mpd")
+        run("systemctl --user enable mpd", "Автозапуск демона mpd")
 
     @staticmethod
     def __enable_network_daemon():
-        os.system("sudo systemctl enable NetworkManager")
-    
+        run("sudo systemctl enable NetworkManager", "Автозапуск NetworkManager")
+
     @staticmethod
     def __enable_bluetooth_daemon():
-        os.system("sudo systemctl enable bluetooth.service")
-        os.system("sudo systemctl start bluetooth.service")
+        run("sudo systemctl enable bluetooth.service", "Автозапуск bluetooth.service")
+        run("sudo systemctl start bluetooth.service", "Запуск bluetooth.service")
 
     @staticmethod
     def __enable_tor_daemon():
-        os.system("sudo systemctl enable tor.service")
-        os.system("sudo systemctl start tor.service")
+        run("sudo systemctl enable tor.service", "Автозапуск tor.service")
+        run("sudo systemctl start tor.service", "Запуск tor.service")
