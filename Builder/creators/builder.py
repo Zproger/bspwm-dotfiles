@@ -75,3 +75,14 @@ class SystemConfiguration:
         run("cp -r themes ~/.themes", "Копирование themes/")
         run("cp xinitrc ~/.xinitrc", "Копирование xinitrc")
         run("cp -r bin/ ~/", "Копирование bin/")
+        SystemConfiguration.__patch_hardcoded_home_paths()
+
+    @staticmethod
+    def __patch_hardcoded_home_paths():
+        # gtkrc-2.0 и bookmarks не shell-скрипты, а статичные конфиги для GTK,
+        # поэтому $HOME/~ внутри них не раскрываются - путь захардкожен под
+        # исходную машину автора и должен быть подставлен реальным $HOME здесь
+        run(
+            'sed -i "s|/home/user|$HOME|g" ~/.gtkrc-2.0 ~/.config/gtk-3.0/bookmarks',
+            "Подстановка актуального $HOME вместо захардкоженного /home/user",
+        )

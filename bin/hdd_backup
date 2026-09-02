@@ -7,7 +7,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color (сброс цвета)
 
 # Путь к внешнему жесткому диску (без слеша в конце)
-DEST="/run/media/user/aaa"
+DEST="/run/media/$USER/aaa"
 
 # ПРОВЕРКА: смонтирован ли диск?
 if [ ! -d "$DEST" ]; then
@@ -19,10 +19,10 @@ echo -e "${BLUE}=== Начинаю бэкап на $DEST ===${NC}"
 
 # Команды rsync
 echo "Синхронизация Knowledge..."
-rsync -av --delete /home/user/Downloads/Knowledge/ "$DEST/Knowledge/"
+rsync -av --delete "$HOME/Downloads/Knowledge/" "$DEST/Knowledge/"
 
 echo "Синхронизация SYNC..."
-rsync -av --delete /home/user/Downloads/SYNC/ "$DEST/SYNC/"
+rsync -av --delete "$HOME/Downloads/SYNC/" "$DEST/SYNC/"
 
 # Запись даты
 echo "last update: $(date +'%Y-%m-%d %H:%M:%S')" >> "$DEST/update.txt"
