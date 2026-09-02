@@ -1,0 +1,12 @@
+CLAUDE.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Установочные логи Builder/
+build_debug.log
+
+# macOS
+.DS_Store
