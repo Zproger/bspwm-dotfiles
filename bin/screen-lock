@@ -9,6 +9,14 @@ verify=7aa2f7
 
 lock_image="$HOME/Images/system/lock_screen.png"
 
+# sxhkd - глобальный хоткей-демон и не завязан на конкретное окно, поэтому его бинды
+# (например super+space) продолжают срабатывать поверх i3lock и меняют состояние
+# окна за экраном блокировки. Останавливаем sxhkd на время блокировки и гарантированно
+# возобновляем его после (даже если i3lock завершится аварийно), иначе экран
+# блокировки можно "свернуть" не вводя пароль.
+pkill -STOP sxhkd
+trap 'pkill -CONT sxhkd' EXIT
+
 i3lock -n --force-clock -i $lock_image -e --indicator --radius=20 \
 --ring-width=40 --inside-color=$fg --ring-color=$fg --insidever-color=$verify \
 --ringver-color=$verify --insidewrong-color=$wrong --ringwrong-color=$wrong \
