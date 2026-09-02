@@ -1,9 +1,17 @@
 #!/bin/sh
 pgrep -x polybar
 status=$?
-if test $status -eq 0 
+if test $status -eq 0
 then
-  killall polybar && bspc config -m focused top_padding 0
-else 
-  $HOME/.config/polybar/launch.sh && bspc config -m focused top_padding 31
+  killall polybar && padding=0
+else
+  $HOME/.config/polybar/launch.sh && padding=31
+fi
+
+if test -n "$padding"
+then
+  for monitor in $(bspc query -M --names)
+  do
+    bspc config -m "$monitor" top_padding $padding
+  done
 fi
