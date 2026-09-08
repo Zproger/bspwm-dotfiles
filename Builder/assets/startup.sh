@@ -9,6 +9,6 @@ clear
 printf "${cb} ┌─┐┌─┐┬─┐┌─┐┌─┐┌─┐┬─┐  ┌┬┐┌─┐┌┬┐┌─┐┬┬  ┌─┐┌─┐\n"
 printf "${cb} ┌─┘├─┘├┬┘│ ││ ┬├┤ ├┬┘   │││ │ │ ├┤ ││  ├┤ └─┐\n"
 printf "${cb} └─┘┴  ┴└─└─┘└─┘└─┘┴└─  ─┴┘└─┘ ┴ └  ┴┴─┘└─┘└─┘\n\n"
-printf "${cg} Version: 1.2\n"
+printf "${cg} Version: 1.3\n"
 printf "${cg} Youtube: https://youtube.com/@zproger"
 printf "${default}\n\n"
