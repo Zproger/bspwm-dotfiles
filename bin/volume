@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Script To Manage Speaker Volume For Axyl OS.
+## Script To Manage Speaker Volume.
 
 # Get Volume
 get_volume() {

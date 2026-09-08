@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 notify="notify-send"
-tmp_disturb="/tmp/xmonad/donotdisturb"
-tmp_disturb_colorfile="/tmp/xmonad/donotdisturb/color"
+tmp_disturb="/tmp/bspwm/donotdisturb"
+tmp_disturb_colorfile="/tmp/bspwm/donotdisturb/color"
 
 if [ ! -d $tmp_disturb ]; then
 	mkdir -p $tmp_disturb
