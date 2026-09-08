@@ -1,0 +1,39 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+c",
+        "command": "fileutils.copyFileName"
+    },
+    {
+        "key": "alt+r",
+        "command": "fileutils.removeFile"
+    },
+    {
+        "key": "alt+d",
+        "command": "fileutils.duplicateFile"
+    },
+    {
+        "key": "alt+m",
+        "command": "fileutils.moveFile"
+    },
+    {
+        "key": "alt+h",
+        "command": "fileutils.newFile"
+    },
+    {
+        "key": "alt+j",
+        "command": "fileutils.newFileAtRoot"
+    },
+    {
+        "key": "alt+k",
+        "command": "fileutils.newFolder"
+    },
+    {
+        "key": "alt+l",
+        "command": "fileutils.newFolderAtRoot"
+    },
+    {
+        "key": "alt+n",
+        "command": "fileutils.renameFile"
+    }
+]
