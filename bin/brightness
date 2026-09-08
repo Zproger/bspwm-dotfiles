@@ -3,6 +3,14 @@
 # Graphics card
 CARD=$(basename "$(find /sys/class/backlight/* | head -n 1)")
 
+# Print current brightness as a percentage
+get_backlight() {
+	if [[ "$CARD" == *"intel_"* ]]; then
+		brightnessctl --device "$CARD" -m | awk -F, '{print $4}'
+	else
+		light -G
+	fi
+}
 
 # Increase brightness
 inc_backlight() {
@@ -16,7 +24,7 @@ inc_backlight() {
 # Decrease brightness
 dec_backlight() {
 	if [[ "$CARD" == *"intel_"* ]]; then
-		brightnessctl --device "$CARD" set 5-%
+		brightnessctl --device "$CARD" set 5%-
 	else
 		light -U 5
 	fi

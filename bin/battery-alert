@@ -7,9 +7,12 @@ low=25
 
 while true; do
 
-  # If battery is plugged, do stuff
-  battery="/sys/class/power_supply/BAT1"
-  if [ -d $battery ]; then
+  # Determine the battery device by pattern instead of a fixed name:
+  # laptops expose it as BAT0, BAT1, etc. depending on vendor/firmware,
+  # so a hardcoded name silently disables all notifications on hardware
+  # that doesn't happen to use that exact one.
+  battery=$(find /sys/class/power_supply -maxdepth 1 -name 'BAT*' 2>/dev/null | head -n 1)
+  if [ -n "$battery" ] && [ -d "$battery" ]; then
 
     capacity=$(cat $battery/capacity)
     status=$(cat $battery/status)
