@@ -1,7 +1,18 @@
 #!/bin/sh
 
-INTERNAL_MONITOR="eDP-1"
-EXTERNAL_MONITOR="HDMI-1-1"
+# Determine monitor names dynamically instead of hardcoding them: xrandr output
+# names differ across GPU drivers/docks, and a fixed name that doesn't match
+# the real hardware makes bspc silently fail to create any desktop at all.
+CONNECTED_MONITORS=$(xrandr -q | grep " connected" | awk '{print $1}')
+INTERNAL_MONITOR=$(echo "$CONNECTED_MONITORS" | grep -E '^(eDP|LVDS)' | head -n1)
+EXTERNAL_MONITOR=$(echo "$CONNECTED_MONITORS" | grep -vE '^(eDP|LVDS)' | head -n1)
+
+# No laptop panel found (e.g. desktop PC) - treat the only monitor as internal
+# and skip the dual-monitor layout below.
+if [ -z "$INTERNAL_MONITOR" ]; then
+  INTERNAL_MONITOR="$EXTERNAL_MONITOR"
+  EXTERNAL_MONITOR=""
+fi
 
 monitor_add() {
   # Move first 5 desktops to external monitor
@@ -33,26 +44,26 @@ monitor_remove() {
 }
 
 # On first load setup default workspaces
-if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
+if [ -n "$EXTERNAL_MONITOR" ]; then
   bspc monitor "$EXTERNAL_MONITOR" -d 1 2 3 4 5
   bspc monitor "$INTERNAL_MONITOR" -d 6 7 8 9
   bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
 else
-  bspc monitor "$INTERNAL_MONITOR" -d 1 2 3 4 5 6 7 8 9 
+  bspc monitor "$INTERNAL_MONITOR" -d 1 2 3 4 5 6 7 8 9
 fi
 
-if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
+if [ -n "$EXTERNAL_MONITOR" ]; then
   # set xrandr rules for docked setup
   xrandr --output "$INTERNAL_MONITOR" --mode 1920x1080 --pos 0x0 --rotate normal
   xrandr --output "$EXTERNAL_MONITOR" --primary --mode 2560x1440 --pos 1920x0 --rotate normal --left-of "$INTERNAL_MONITOR"
-  
+
   if [[ $(bspc query -D -m "${EXTERNAL_MONITOR}" | wc -l) -ne 5 ]]; then
     monitor_add
   fi
   bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
 else
   # set xrandr rules for mobile setup
-  xrandr --output "$INTERNAL_MONITOR" --primary --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL_MONITOR" --off
+  xrandr --output "$INTERNAL_MONITOR" --primary --mode 1920x1080 --pos 0x0 --rotate normal
   if [[ $(bspc query -D -m "${INTERNAL_MONITOR}" | wc -l) -ne 10 ]]; then
     monitor_remove
   fi

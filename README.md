@@ -103,6 +103,7 @@ Complete instructions for corrections: https://youtu.be/9zewiGf7j-A
 * **Switch to another desktop** - `super + 1/6`
 * **Move the window to another desktop** - `super + shift + 1/6`
 * **Switch the window to floating mode** - `super + space`
+* **Open the clipboard manager** - `super + v`
 
 The other hotkeys are in `~/.config/sxhkd/sxhkdrc`.
 

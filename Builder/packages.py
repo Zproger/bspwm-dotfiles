@@ -121,6 +121,7 @@ DEV_PACKAGES = [
 
 AUR_PACKAGES = [
     "lazydocker",  # Удобный интерфейс для управления docker
+    "greenclip",  # Демон истории буфера обмена для rofi-меню (bin/clipboard-menu)
     "cava",  # Вывод спектра для музыки
     "i3lock-color",  # Используется для блокировки экрана
     "ptpython",  # Выполнение Python кода построчно

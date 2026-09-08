@@ -53,5 +53,8 @@ picom --config $HOME/.config/bspwm/picom_configurations/1.conf &
 # == autostart ==
 pkill flameshot; flameshot &
 
+# launch clipboard manager daemon
+pkill greenclip; greenclip daemon &
+
 # run cursor tracker
 pkill cursor_tracker ; ~/bin/cursor_tracker.sh

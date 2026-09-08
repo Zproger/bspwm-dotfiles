@@ -51,6 +51,10 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 XF86MonBrightness{Up,Down}
     sh $HOME/bin/brightness{ --up, --down}
 
+# Clipboard manager
+super + v
+    sh $HOME/bin/clipboard-menu
+
 # screenshot
 Print
     flameshot gui
